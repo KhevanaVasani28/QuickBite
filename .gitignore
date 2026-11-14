@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────
+# Windows OS Files
+# ─────────────────────────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+
+# Build files
+dist/
+build/
+
+# PHP
+*.log
+
+# Temporary files
+*.tmp
+
+# ─────────────────────────────────────────────
+# XAMPP / MAMP / Local Server Artifacts
+# ─────────────────────────────────────────────
+*.pid
+*.pid.lock
+*.seed
+
+# ─────────────────────────────────────────────
+# Optionally ignore image assets (uncomment if needed)
+# ─────────────────────────────────────────────
+# assets/images/categories/*
+# assets/images/food/*
+# !assets/images/categories/.gitkeep
+# !assets/images/food/.gitkeep
