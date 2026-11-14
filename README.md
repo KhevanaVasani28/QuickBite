@@ -5,21 +5,26 @@ A full-stack **online food ordering web application** built with **HTML, CSS, Va
 ![PHP](https://img.shields.io/badge/PHP-8.x-blue)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-orange)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
+
+---
+
+## 📖 Overview
+
+QuickBite simulates a real-world online food delivery experience. Users can explore categories (Indian, Mexican, Italian, Chinese, Beverages), view food items, manage a shopping cart, and place Cash-on-Delivery orders. The project demonstrates frontend development with vanilla JS, REST-style PHP endpoints, session-based authentication, and MySQL database integration.
 
 ---
 
 ## ✨ Features
 
 - 🔐 **User Authentication** - Register and login system with secure password hashing
+- 🏠 **Home Page** — Hero banner, popular categories, and featured food items
 - 🍽️ **Food Categories** - Browse Indian, Mexican, Italian, Chinese, and Beverages
 - 🛒 **Shopping Cart** - Add, update quantity, and remove items
-- 💳 **Multiple Payment Methods** - Cash on Delivery, Card, and UPI
+- 💳 **Checkout** — Enter delivery details, view order summary (subtotal + delivery + tax), and place order
+- 🔐 **Session Management** — Login state maintained via PHP sessions
 - 📱 **Fully Responsive** - Works perfectly on desktop, tablet, and mobile
-- 💰 **Indian Currency (₹)** - Prices displayed in rupees with GST calculation
 - 🎨 **Modern UI** - Clean and attractive interface
 - ⚡ **AJAX Powered** - Smooth, no-reload experience
-- 🚚 **Estimated Delivery Time** - Shows 20-30 minutes delivery estimate
 
 ---
 
@@ -40,7 +45,7 @@ A full-stack **online food ordering web application** built with **HTML, CSS, Va
 ## 📁 Folder Structure
 
 ```
-online-food-ordering/
+QuickBite/
 │
 ├── index.html              # Homepage with categories & popular items
 ├── menu.html               # Full menu with category filters
@@ -65,16 +70,32 @@ online-food-ordering/
 │   ├── fetch_food_items.php # Returns food items (JSON)
 │   └── place_order.php     # Order placement handler
 │
+├── assets/
+│   └── images/
+│       ├── categories/
+|       |   ├── chinese.jpg
+|       |   ├── italian.jpg
+|       |   └── .....
+|       |
+│       ├── food/
+|       |   ├── cold-coffee.jpg
+|       |   ├── manchurian.jpg
+|       |   └── .....
+|       |
+│       ├── default-category.jpg
+│       └──default-food.jpg
+|
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🚀 Installation Guide
+## 🚀 Installation & Setup
 
 ### Prerequisites
 
-- **MAMP** (or XAMPP/WAMP) installed
+- **XAMPP** (or MAMP/WAMP) installed
 - **MySQL** running
 - **PHP 7.0+**
 - Modern web browser
@@ -82,27 +103,22 @@ online-food-ordering/
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/online-food-ordering.git
-cd online-food-ordering
+git clone https://github.com/KhevanaVasani28/QuickBite.git
+cd QuickBite.git
 ```
 
-Or simply download and extract the ZIP file.
-
-### Step 2: Move to MAMP htdocs
+### Step 2: Move to XAMPP htdocs
 
 ```bash
-# For macOS MAMP
-mv online-food-ordering /Applications/MAMP/htdocs/
-
-# For Windows MAMP
-move online-food-ordering C:\MAMP\htdocs\
+# For Windows XAMPP
+copy online-food-ordering C:\xampp\htdocs\
 ```
 
 ### Step 3: Set Up the Database
 
 1. Open **phpMyAdmin** at `http://localhost:8888/phpMyAdmin/`
 2. Click on the **SQL** tab
-3. Copy and paste the contents of `database.sql` (or the SQL code below)
+3. Copy and paste the contents of Database Schema given below. Also add the data nto the tables (Example given below).
 4. Click **Go** to execute
 
 ### Step 4: Configure Database Connection
@@ -112,22 +128,22 @@ Open `php/db_connect.php` and update if needed:
 ```php
 $host = 'localhost';
 $username = 'root';
-$password = 'root';       // MAMP default
+$password = '';       
 $database = 'food_ordering';
-$port = 8889;              // MAMP default port
+$port = 3306;              
 ```
 
 ### Step 5: Run the Website
 
-Start MAMP servers and visit:
+Open XAMPP control panel and start Apache and MySQL. Now open the browser and write:
 
 ```
-http://localhost:8888/online-food-ordering/
+http://localhost:8888/QuickBite/index.html
 ```
 
 ---
 
-## 🗄️ Database Schema
+## 🗄️ Database Schema and Example input
 
 ```sql
 CREATE DATABASE food_ordering;
@@ -190,6 +206,22 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(id),
     FOREIGN KEY (food_item_id) REFERENCES food_items(id)
 );
+```
+
+```sql
+INSERT INTO categories (name, description, image) VALUES
+('Indian',    'Spicy and flavorful Indian dishes', 'assets/images/categories/indian.jpg'),
+('Mexican',   'Tacos, burritos and more',           'assets/images/categories/mexican.jpg'),
+('Italian',   'Pizza, pasta and more',              'assets/images/categories/italian.jpg'),
+('Chinese',   'Noodles, dumplings and more',        'assets/images/categories/chinese.jpg'),
+('Beverages', 'Refreshing drinks',                  'assets/images/categories/beverages.jpg');
+
+INSERT INTO food_items (category_id, name, description, price, image, food_type, preparation_time) VALUES
+(1, 'Chicken Biryani',  'Aromatic basmati rice with chicken', 249.00, 'assets/images/food/biryani.jpg', 'non-veg', 30),
+(2, 'Veg Tacos',        'Crispy tacos with veggies and salsa', 149.00, 'assets/images/food/tacos.jpg',   'veg',     15),
+(3, 'Margherita Pizza', 'Classic cheese pizza',                199.00, 'assets/images/food/pizza.jpg',   'veg',     20),
+(4, 'Hakka Noodles',    'Stir-fried noodles with veggies',     129.00, 'assets/images/food/noodles.jpg', 'veg',     15),
+(5, 'Cold Coffee',      'Chilled coffee with ice cream',        99.00, 'assets/images/food/coffee.jpg',  'veg',      5);
 ```
 
 ## 🔌 API Endpoints
