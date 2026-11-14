@@ -1,6 +1,11 @@
 # 🍕 QuickBite - Online Food Ordering Website
 
-A simple and elegant online food ordering website built with **HTML, CSS, JavaScript, PHP, and MySQL**. Customers can register, browse food categories, add items to cart, and place orders with multiple payment options.
+A full-stack **online food ordering web application** built with **HTML, CSS, Vanilla JavaScript, PHP, and MySQL**. QuickBite lets customers browse a menu, add items to a cart, register/login, and place orders with a simple checkout flow.
+
+![PHP](https://img.shields.io/badge/PHP-8.x-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-orange)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
