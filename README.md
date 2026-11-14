@@ -124,7 +124,7 @@ copy online-food-ordering C:\xampp\htdocs\
 ### Step 4: Configure Database Connection
 
 Open `php/db_connect.php` and update if needed:
-
+(For XAMPP)
 ```php
 $host = 'localhost';
 $username = 'root';
@@ -233,6 +233,7 @@ INSERT INTO food_items (category_id, name, description, price, image, food_type,
 | `php/fetch_categories.php` | GET | Get all food categories |
 | `php/fetch_food_items.php` | GET | Get all food items (or filter by `?category_id=`) |
 | `php/place_order.php` | POST | Place a new order |
+| `php/check_session.php` | GET | Get the current session status |
 
 ---
 
@@ -244,9 +245,7 @@ INSERT INTO food_items (category_id, name, description, price, image, food_type,
 4. **Add items** to cart by clicking "Add to Cart"
 5. **View cart** and adjust quantities
 6. **Proceed to checkout** and enter delivery details
-7. **Select payment method** (COD/Card/UPI)
-8. **Place order** and see the success message
-9. **Wait for delivery** (20-30 minutes estimated)
+7. **Place order** and see the success message
 
 ---
 
@@ -283,36 +282,6 @@ Visit `http://localhost:8888/online-food-ordering/test.php`
 | **Categories not loading** | Open browser console (F12) to check for JavaScript errors |
 | **404 on PHP files** | Ensure you're accessing via `http://localhost:8888/` (not `file://`) |
 | **Login not working** | Clear browser cache and try again |
-
----
-
-## 🎨 Customization
-
-### Change Theme Color
-Edit `css/style.css`:
-
-```css
-:root {
-    --primary-color: #e74c3c;   /* Change this */
-    --primary-dark: #c0392b;
-}
-```
-
-### Add New Category
-Insert into `categories` table:
-
-```sql
-INSERT INTO categories (name, image, description) 
-VALUES ('Thai', 'path/to/image.jpg', 'Delicious Thai cuisine');
-```
-
-### Add New Food Item
-Insert into `food_items` table:
-
-```sql
-INSERT INTO food_items (name, description, price, image, category_id, food_type, preparation_time)
-VALUES ('Pad Thai', 'Stir-fried rice noodles', 250, 'path/to/image.jpg', 6, 'veg', 20);
-```
 
 ---
 
