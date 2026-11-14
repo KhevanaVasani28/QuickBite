@@ -42,7 +42,7 @@ QuickBite simulates a real-world online food delivery experience. Users can expl
 
 ---
 
-## 📁 Folder Structure
+## 📁 Directory Structure
 
 ```
 QuickBite/
@@ -113,12 +113,13 @@ cd QuickBite.git
 # For Windows XAMPP
 copy online-food-ordering C:\xampp\htdocs\
 ```
+Note: Images are not added in the 'assets' folder. Use your own images. Directory structure is mentioned above.
 
 ### Step 3: Set Up the Database
 
 1. Open **phpMyAdmin** at `http://localhost:8888/phpMyAdmin/`
 2. Click on the **SQL** tab
-3. Copy and paste the contents of Database Schema given below. Also add the data nto the tables (Example given below).
+3. Copy and paste the contents of 'Database Schema' given below. Also add the data into the tables (Example given below).
 4. Click **Go** to execute
 
 ### Step 4: Configure Database Connection
@@ -249,42 +250,6 @@ INSERT INTO food_items (category_id, name, description, price, image, food_type,
 
 ---
 
-## 🧪 Testing
-
-### Test Database Connection
-Create a file `test.php` in the root:
-
-```php
-<?php
-include 'php/db_connect.php';
-echo "Database connected successfully!<br>";
-
-$result = $conn->query("SELECT COUNT(*) as count FROM categories");
-$row = $result->fetch_assoc();
-echo "Categories: " . $row['count'] . "<br>";
-
-$result = $conn->query("SELECT COUNT(*) as count FROM food_items");
-$row = $result->fetch_assoc();
-echo "Food Items: " . $row['count'];
-?>
-```
-
-Visit `http://localhost:8888/online-food-ordering/test.php`
-
----
-
-## 🐛 Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| **Database connection failed** | Check MAMP MySQL port (default 8889) and password ('root') |
-| **Images not showing** | Ensure `images/` folder exists or use online image URLs |
-| **Categories not loading** | Open browser console (F12) to check for JavaScript errors |
-| **404 on PHP files** | Ensure you're accessing via `http://localhost:8888/` (not `file://`) |
-| **Login not working** | Clear browser cache and try again |
-
----
-
 ## 🔒 Security Features
 
 - ✅ **Password Hashing** with `password_hash()`
@@ -297,13 +262,32 @@ Visit `http://localhost:8888/online-food-ordering/test.php`
 
 ## 📈 Future Enhancements
 
-- [ ] Order tracking with live status updates
 - [ ] Admin panel for managing items
-- [ ] Email notifications
-- [ ] Razorpay/Stripe integration
+- [ ] Email/SMS notifications
+- [ ] Razorpay/Stripe payment-gateway integration
 - [ ] User profile & order history
 - [ ] Coupon & discount system
 - [ ] Ratings & reviews
 - [ ] Real-time GPS delivery tracking
 
 ---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 👤 Author
+
+**Khevana Vasani**
+- GitHub: https://github.com/KhevanaVasani28
+- Email: khevanavasani@gmail.com
+
+## ⭐ If you find this project useful, please give it a star!
